@@ -1,0 +1,17 @@
+{
+    "name": "nicolasdewez/webhome-common",
+    "license": "MIT",
+    "type": "project",
+    "description": "WebHome Project - Common",
+    "autoload": {
+        "psr-4": {
+          "Ndewez\\WebHome\\CommonBundle\\": ""
+        }
+    },
+    "require": {
+        "php": ">=5.3.9",
+        "symfony/symfony": "^2.7",
+        "guzzlehttp/guzzle": "^6.1",
+        "hwi/oauth-bundle": "~0.3"
+    }
+}
