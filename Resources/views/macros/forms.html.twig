@@ -1,0 +1,11 @@
+{% macro buttons(form, list) %}
+    <div class="row">
+        <div class="col-sm-10">
+            {% for field in list %}
+                {% if attribute(form, field) is defined %}
+                    {{ form_widget(attribute(form, field)) }}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endmacro %}

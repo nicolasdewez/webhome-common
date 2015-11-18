@@ -21,6 +21,13 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('auth')->defaultTrue()->end()
+                ->arrayNode('menu')
+                    ->children()
+                        ->scalarNode('session')->defaultTrue()->end()
+                        ->scalarNode('getter')->end()
+                        ->scalarNode('builder')->end()
+                    ->end()
+                ->end()
                 ->scalarNode('api_client')->defaultTrue()->end()
                 ->scalarNode('validator')->defaultTrue()->end()
             ->end();

@@ -1,0 +1,37 @@
+.header {
+    border-bottom: 1px solid #e7e7e7;
+    background-image: linear-gradient(#f2f4f6, white);
+
+    &-container {
+        padding:@appPadding;
+        line-height: 70px;
+
+        &-link {
+            text-decoration: none;
+            display: block;
+
+            &-project,
+            &-app,
+            > h1 {
+                display:inline-block;
+                vertical-align: middle;
+                color: #434a54;
+            }
+
+            > h1 {
+                color: #434a54;
+                font-family: Antonio, Arial, serif;
+                font-style: normal;
+                font-size: 2.5em;
+                font-weight: bold;
+                padding: 0 50px 0 7px;
+                margin: 0;
+            }
+
+          &-project,
+          &-app {
+                font-size: 2.5em;
+            }
+        }
+    }
+}

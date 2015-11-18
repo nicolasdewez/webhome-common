@@ -1,0 +1,16 @@
+{% macro icon(icon, title, visible) %}
+    {% if visible is not null and not visible %}
+        {% set classVisible = 'hide' %}
+    {% endif %}
+    <span class="{{ icon }} {{ classVisible|default('') }}" title="{{ title }}" aria-hidden="true"></span>
+{% endmacro %}
+
+{% macro active(title, visible) %}
+    {% import _self as icons %}
+    {{ icons.icon('glyphicon glyphicon-ok', title, visible) }}
+{% endmacro %}
+
+{% macro deactive(title, visible) %}
+    {% import _self as icons %}
+    {{ icons.icon('glyphicon glyphicon-remove', title, visible) }}
+{% endmacro %}

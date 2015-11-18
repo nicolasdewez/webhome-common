@@ -1,0 +1,10 @@
+<div class="header-container">
+    <a href="{{ path('app_home') }}" class="header-container-link">
+        {% spaceless %}
+            <span class="glyphicon glyphicon-home header-container-link-project" aria-hidden="true"></span>
+            <h1>{{ project_name }}</h1>
+            <span class="glyphicon {{ app_icon }} header-container-link-app" aria-hidden="true"></span>
+            <h1>{{ app_name }}</h1>
+        {% endspaceless %}
+    </a>
+</div>

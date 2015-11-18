@@ -1,0 +1,5 @@
+menu:
+    auth:
+        home: Home
+        groups: Groups
+        users: Users

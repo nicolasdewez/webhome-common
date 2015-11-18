@@ -1,0 +1,30 @@
+.navbar {
+    border-radius: 0;
+    border-top: 0;
+    border-bottom: 0;
+    box-shadow: 1px 4px 4px @highlightColor;
+    background-image: linear-gradient(white, #f2f4f6);
+
+    a {
+        font-weight: normal;
+    }
+
+    .nav {
+        & > .dropdown.open {
+            & > a,
+            & > a:hover {
+              .bg-highlight();
+            }
+        }
+
+        & > .active > a,
+        & > .active > a:hover,
+        & > li > a:hover {
+          .bg-highlight();
+        }
+    }
+
+    .dropdown-menu > li > a:hover {
+        .bg-highlight();
+    }
+}

@@ -1,0 +1,11 @@
+{% if links|length %}
+    <ol class="breadcrumb">
+    {% for link in links %}
+        {% if link.active|default(false) %}
+            <li class="active">{{ link.title|trans }}</li>
+        {% else %}
+            <li><a href="{{ path(link.route) }}">{{ link.title|trans }}</a></li>
+        {% endif %}
+    {% endfor %}
+    </ol>
+{% endif %}

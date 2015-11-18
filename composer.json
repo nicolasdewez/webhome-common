@@ -11,6 +11,7 @@
     "require": {
         "php": ">=5.3.9",
         "symfony/symfony": "^2.7",
+        "nicolasdewez/webhome-auth-api": "dev-master",
         "guzzlehttp/guzzle": "^6.1",
         "hwi/oauth-bundle": "~0.3"
     }

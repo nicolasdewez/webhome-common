@@ -37,6 +37,7 @@ class RedirectionHandler extends ContainerAware implements LogoutSuccessHandlerI
 
     /**
      * @throws ResourceNotFoundException if the route is not found
+     *
      * @return string the route name
      */
     private function getHomepageRouteName()

@@ -1,0 +1,36 @@
+{% macro link(icon, title, href, rel, visible) %}
+    {% if visible is not null and not visible %}
+        {% set classVisible = 'hide' %}
+    {% endif %}
+    <a href="{{ href|default('#') }}" rel="{{ rel|default('') }}" class="{{ icon }} {{ classVisible|default('') }}" title="{{ title }}" aria-hidden="true"></a>
+{% endmacro %}
+
+{% macro plus(title, href, rel, visible) %}
+    {% import _self as icons %}
+    {{ icons.link('glyphicon glyphicon-plus', title, href, rel, visible) }}
+{% endmacro %}
+
+{% macro delete(title, href, rel, visible) %}
+    {% import _self as icons %}
+    {{ icons.link('glyphicon glyphicon-trash', title, href, rel, visible) }}
+{% endmacro %}
+
+{% macro edit(title, href, rel, visible) %}
+    {% import _self as icons %}
+    {{ icons.link('glyphicon glyphicon-pencil', title, href, rel, visible) }}
+{% endmacro %}
+
+{% macro show(title, href, rel, visible) %}
+    {% import _self as icons %}
+    {{ icons.link('glyphicon glyphicon-search', title, href, rel, visible) }}
+{% endmacro %}
+
+{% macro active(title, href, rel, visible) %}
+    {% import _self as icons %}
+    {{ icons.link('glyphicon glyphicon-ok', title, href, rel, visible) }}
+{% endmacro %}
+
+{% macro deactive(title, href, rel, visible) %}
+    {% import _self as icons %}
+    {{ icons.link('glyphicon glyphicon-remove', title, href, rel, visible) }}
+{% endmacro %}

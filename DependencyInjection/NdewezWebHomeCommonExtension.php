@@ -22,16 +22,20 @@ class NdewezWebHomeCommonExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 
+        if (true === $config['auth']) {
+            $loader->load('security.xml');
+        }
+
+        if (isset($config['menu'])) {
+            $loader->load('menu.xml');
+        }
+
         if (true === $config['api_client']) {
             $loader->load('api.xml');
         }
 
         if (true === $config['validator']) {
             $loader->load('validator.xml');
-        }
-
-        if (true === $config['auth']) {
-            $loader->load('security.xml');
         }
     }
 }

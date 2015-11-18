@@ -11,5 +11,7 @@
             </call>
         </service>
 
+        <service id="webhome.user.provider" class="Ndewez\WebHome\CommonBundle\User\WebHomeUserProvider" />
+
     </services>
 </container>
