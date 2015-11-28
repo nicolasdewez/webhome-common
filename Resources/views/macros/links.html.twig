@@ -5,6 +5,11 @@
     <a href="{{ href|default('#') }}" rel="{{ rel|default('') }}" class="{{ icon }} {{ classVisible|default('') }}" title="{{ title }}" aria-hidden="true"></a>
 {% endmacro %}
 
+{% macro link_text(icon, title, href) %}
+    <a href="{{ href|default('#') }}" class="{{ icon }}" title="{{ title }}" aria-hidden="true"></a>
+    <a href="{{ href|default('#') }}" title="{{ title }}">{{ title }}</a>
+{% endmacro %}
+
 {% macro plus(title, href, rel, visible) %}
     {% import _self as icons %}
     {{ icons.link('glyphicon glyphicon-plus', title, href, rel, visible) }}
