@@ -1,0 +1,11 @@
+table:
+    no_element: Aucun élément
+
+actions:
+    label: Actions
+    edit: Modifier
+    show: Voir
+    activate: Activer
+    deactivate: Désactiver
+    submit: Valider
+    delete: Supprimer

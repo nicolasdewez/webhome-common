@@ -15,5 +15,11 @@
             <argument type="service" id="router" />
         </service>
 
+        <service id="webhome.authorizations.web_service" class="Ndewez\WebHome\CommonBundle\Menu\GetterAuthorizationsWebService">
+            <argument type="service" id="security.token_storage" />
+            <argument type="service" id="webhome_auth.client" />
+            <argument type="service" id="app.transform.authorization" />    <!-- Warning, To move ! -->
+        </service>
+
     </services>
 </container>
