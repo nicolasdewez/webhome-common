@@ -9,3 +9,9 @@ actions:
     deactivate: Deactivate
     submit: Submit
     delete: Delete
+
+header:
+    applications: Others applications
+    logout: Logout
+    show_account: My account
+    change_password: Change my password

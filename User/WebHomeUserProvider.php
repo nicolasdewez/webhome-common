@@ -16,7 +16,19 @@ class WebHomeUserProvider extends OAuthUserProvider
      */
     public function loadUserByOAuthUserResponse(UserResponseInterface $response)
     {
-        return new WebHomeUser($response->getNickname(), null, $response->getRealName(), $response->getAccessToken());
+        $user = new WebHomeUser(
+            $response->getNickname(),
+            null,
+            $response->getFirstName(),
+            $response->getLastName(),
+            $response->getLocale(),
+            $response->getAccessToken(),
+            $response->getRefreshToken()
+        );
+
+        $user->initRolesAndApplications($response->getRoles());
+
+        return $user;
     }
 
     /**

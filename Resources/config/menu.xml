@@ -8,6 +8,7 @@
         <service id="webhome.listener.menu" class="Ndewez\WebHome\CommonBundle\EventListener\MenuListener">
             <argument type="service" id="session" />
             <argument type="service" id="webhome.builder.menu" />
+            <argument type="service" id="webhome.authorizations.session" />
             <tag name="kernel.event_listener" event="kernel.request" />
         </service>
 
@@ -15,10 +16,8 @@
             <argument type="service" id="router" />
         </service>
 
-        <service id="webhome.authorizations.web_service" class="Ndewez\WebHome\CommonBundle\Menu\GetterAuthorizationsWebService">
+        <service id="webhome.authorizations.session" class="Ndewez\WebHome\CommonBundle\Menu\GetterAuthorizationsSession">
             <argument type="service" id="security.token_storage" />
-            <argument type="service" id="webhome_auth.client" />
-            <argument type="service" id="app.transform.authorization" />    <!-- Warning, To move ! -->
         </service>
 
     </services>

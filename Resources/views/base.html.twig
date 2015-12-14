@@ -11,11 +11,13 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body class="root">
+        {{ render(controller('NdewezWebHomeCommonBundle:User:userBar')) }}
+
         <header class="header">
             {{ include('@NdewezWebHomeCommon/header.html.twig') }}
         </header>
 
-        <nav class="navbar navbar-default">
+        <nav class="menu navbar navbar-default">
             <div class="container-fluid">
                 {{ include('@NdewezWebHomeCommon/menu.html.twig') }}
             </div>

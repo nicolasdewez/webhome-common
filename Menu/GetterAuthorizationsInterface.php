@@ -2,7 +2,7 @@
 
 namespace Ndewez\WebHome\CommonBundle\Menu;
 
-use Ndewez\WebHome\AuthApiBundle\V0\Model\Authorization;
+use Ndewez\WebHome\CommonBundle\Model\Authorization;
 
 /**
  * Interface GetterAuthorizationsInterface.

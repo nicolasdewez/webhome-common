@@ -1,0 +1,31 @@
+<nav class="userBar navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            {% if applications %}
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-th"></span> {{ 'header.applications'|trans }} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            {% for application in applications %}
+                                <li><a href="{{ application.href }}">{{ application.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            {% endif %}
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-user"></span> {{ firstName }} {{ lastName }} ({{ username }}) <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ urlShowAccount }}">{{ 'header.show_account'|trans }}</a></li>
+                        <li><a href="{{ urlChangePassword }}">{{ 'header.change_password'|trans }}</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="{{ path('logout') }}">{{ 'header.logout'|trans }}</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

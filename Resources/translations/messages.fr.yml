@@ -9,3 +9,9 @@ actions:
     deactivate: Désactiver
     submit: Valider
     delete: Supprimer
+
+header:
+    applications: Autres applications
+    logout: Se déconnecter
+    show_account: Mon compte
+    change_password: Changer mon mot de passe

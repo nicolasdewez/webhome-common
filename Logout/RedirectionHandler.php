@@ -2,7 +2,7 @@
 
 namespace Ndewez\WebHome\CommonBundle\Logout;
 
-use Symfony\Component\DependencyInjection\ContainerAware;
+use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
@@ -12,8 +12,10 @@ use Symfony\Component\Security\Http\Logout\LogoutSuccessHandlerInterface;
 /**
  * Class RedirectionHandler.
  */
-class RedirectionHandler extends ContainerAware implements LogoutSuccessHandlerInterface
+class RedirectionHandler implements LogoutSuccessHandlerInterface
 {
+    use ContainerAwareTrait;
+
     /**
      * {@inheritDoc}
      */
@@ -30,7 +32,7 @@ class RedirectionHandler extends ContainerAware implements LogoutSuccessHandlerI
                 ))
             ));
         } catch (ResourceNotFoundException $exception) {
-            // no homepage? simple redirection to sheriff logout
+            // no homepage? simple redirection
             return new RedirectResponse($this->container->getParameter('webhome_auth.logout_url'));
         }
     }

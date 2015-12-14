@@ -31,13 +31,16 @@ class MenuListener
     private $getter;
 
     /**
-     * @param Session     $session
-     * @param BuilderMenu $builderMenu
+     * @param Session                       $session
+     * @param BuilderMenu                   $builderMenu
+     * @param GetterAuthorizationsInterface $getter
      */
-    public function __construct(Session $session, BuilderMenu $builderMenu)
+    public function __construct(Session $session, BuilderMenu $builderMenu, GetterAuthorizationsInterface $getter)
     {
         $this->session = $session;
         $this->builderMenu = $builderMenu;
+        $this->getter = $getter;
+        $this->useSession = true;
     }
 
     /**

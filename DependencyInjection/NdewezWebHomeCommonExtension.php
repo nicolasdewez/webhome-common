@@ -4,6 +4,7 @@ namespace Ndewez\WebHome\CommonBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 
@@ -21,6 +22,9 @@ class NdewezWebHomeCommonExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+
+        $loader->load('services.xml');
+        $loader->load('listeners.xml');
 
         if (true === $config['auth']) {
             $loader->load('security.xml');
