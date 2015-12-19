@@ -3,6 +3,7 @@
 namespace Ndewez\WebHome\CommonBundle\Menu;
 
 use Ndewez\WebHome\CommonBundle\Model\MenuItem;
+use Ndewez\WebHome\CommonBundle\Model\MenuItemDivider;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 
 /**
@@ -30,6 +31,10 @@ class BuilderMenu
     public function build(array $items, $currentUri)
     {
         foreach ($items as $item) {
+            if ($item->isDivider()) {
+                continue;
+            }
+
             $this->buildItem($item, $currentUri);
         }
 
@@ -42,7 +47,23 @@ class BuilderMenu
      */
     private function buildItem(MenuItem $menuItem, $currentUri)
     {
-        $uri = $this->router->generate($menuItem->getRoute(), $menuItem->getParametersRoute());
+        if ($menuItem instanceof MenuItemDivider) {
+            return;
+        }
+
+        if ($menuItem->hasItem()) {
+            foreach ($menuItem->getItems() as $item) {
+                $this->buildItem($item, $currentUri);
+
+                if ($item->isActive()) {
+                    $menuItem->setActive(true);
+                }
+            }
+
+            return;
+        }
+
+        $uri = $menuItem->getRoute() ? $this->router->generate($menuItem->getRoute(), $menuItem->getParametersRoute()) : '';
         $uriHome = $this->router->generate('app_home');
 
         $active = false;

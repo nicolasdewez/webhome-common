@@ -13,8 +13,8 @@ class GetterAuthorizationsSession implements GetterAuthorizationsInterface
     /** @var TokenStorage*/
     private $tokenStorage;
 
-   /**
-     * @param TokenStorage             $tokenStorage
+    /**
+     * @param TokenStorage $tokenStorage
      */
     public function __construct(TokenStorage $tokenStorage)
     {

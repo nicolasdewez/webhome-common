@@ -33,14 +33,14 @@ class UserBar
 
     /**
      * @param ApplicationModel[] $applications
+     *
      * @return array
      */
     public function generateLinksApplications(array $applications)
     {
         $links = [];
 
-        foreach ($applications as $application)
-        {
+        foreach ($applications as $application) {
             if ($this->codeApplication === $application->getCode()) {
                 continue;
             }

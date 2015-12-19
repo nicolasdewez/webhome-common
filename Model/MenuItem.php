@@ -5,7 +5,7 @@ namespace Ndewez\WebHome\CommonBundle\Model;
 /**
  * Class MenuItem.
  */
-class MenuItem
+abstract class MenuItem
 {
     /** @var string */
     private $title;
@@ -22,9 +22,13 @@ class MenuItem
     /** @var bool */
     private $active;
 
+    /** @var MenuItem[] */
+    private $items;
+
     public function __construct()
     {
         $this->parametersRoute = [];
+        $this->items = [];
     }
 
     /**
@@ -126,4 +130,49 @@ class MenuItem
 
         return $this;
     }
+
+    /**
+     * @return MenuItem[]
+     */
+    public function getItems()
+    {
+        return $this->items;
+    }
+
+    /**
+     * @param MenuItem[] $items
+     *
+     * @return MenuItem
+     */
+    public function setItems(array $items)
+    {
+        $this->items = $items;
+
+        return $this;
+    }
+
+    /**
+     * @param MenuItem $item
+     *
+     * @return $this
+     */
+    public function addItem(MenuItem $item)
+    {
+        $this->items[] = $item;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasItem()
+    {
+        return count($this->items) > 0;
+    }
+
+    /**
+     * @return bool
+     */
+    abstract public function isDivider();
 }

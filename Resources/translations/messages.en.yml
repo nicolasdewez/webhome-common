@@ -9,6 +9,7 @@ actions:
     deactivate: Deactivate
     submit: Submit
     delete: Delete
+    search: Search
 
 header:
     applications: Others applications

@@ -19,6 +19,7 @@ class Application
     /**
      * @param string $code
      * @param string $title
+     * @param string $href
      */
     public function __construct($code, $title, $href)
     {
