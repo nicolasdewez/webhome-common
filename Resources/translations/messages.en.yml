@@ -16,3 +16,14 @@ header:
     logout: Logout
     show_account: My account
     change_password: Change my password
+
+days:
+    monday: Monday
+    tuesday: Tuesday
+    wednesday: Wednesday
+    thursday: Thursday
+    friday: Friday
+    saturday: Saturday
+    sunday: Sunday
+
+day: Day(s)
