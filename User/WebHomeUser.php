@@ -3,6 +3,7 @@
 namespace Ndewez\WebHome\CommonBundle\User;
 
 use HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUser;
+use JMS\Serializer\Annotation\Type;
 use Ndewez\WebHome\CommonBundle\Model\Application;
 use Symfony\Component\Security\Core\User\EquatableInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -14,28 +15,58 @@ class WebHomeUser extends OAuthUser implements EquatableInterface
 {
     const PREFIX_ROLE = 'ROLE_';
 
-    /** @var string */
+    /**
+     * @Type("string")
+     * @var string
+     */
+    protected $username;    // Just for type
+
+    /**
+     * @Type("string")
+     * @var string
+     */
     private $password;
 
-    /** @var string */
+    /**
+     * @Type("string")
+     * @var string
+     */
     private $firstName;
 
-    /** @var string */
+    /**
+     * @Type("string")
+     * @var string
+     */
     private $lastName;
 
-    /** @var string */
+    /**
+     * @Type("string")
+     * @var string
+     */
     private $locale;
 
-    /** @var string */
+    /**
+     * @Type("string")
+     * @var string
+     */
     private $accessToken;
 
-    /** @var string */
+    /**
+     * @Type("string")
+     * @var string
+     */
     private $refreshToken;
 
-    /** @var array */
+    /**
+     * @Type("array")
+     * @var array
+     */
     private $roles;
 
-    /** @var array */
+    /**
+     * @Type("array")
+     * @var array
+     */
     private $applications;
 
     /**

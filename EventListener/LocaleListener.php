@@ -2,9 +2,12 @@
 
 namespace Ndewez\WebHome\CommonBundle\EventListener;
 
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
+use Symfony\Component\Security\Http\SecurityEvents;
 
 /**
  * Class LocaleListener.
@@ -15,7 +18,7 @@ class LocaleListener implements EventSubscriberInterface
     private $defaultLocale;
 
     /**
-     * @param string $defaultLocale
+     * @param string  $defaultLocale
      */
     public function __construct($defaultLocale)
     {
@@ -48,7 +51,7 @@ class LocaleListener implements EventSubscriberInterface
     {
         return array(
             // must be registered before the default Locale listener
-            KernelEvents::REQUEST => [['onKernelRequest', 17]],
+            KernelEvents::REQUEST => [['onKernelRequest', 18]],
         );
     }
 }

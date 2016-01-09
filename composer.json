@@ -12,6 +12,7 @@
         "php": ">=5.3.9",
         "symfony/framework-bundle": "~2.8",
         "guzzlehttp/guzzle": "^6.1",
-        "hwi/oauth-bundle": "~0.3"
+        "hwi/oauth-bundle": "~0.3",
+        "nicolasdewez/webhome-auth-api": "dev-master"
     }
 }

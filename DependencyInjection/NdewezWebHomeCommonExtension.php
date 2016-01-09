@@ -40,5 +40,32 @@ class NdewezWebHomeCommonExtension extends Extension
         if (true === $config['validator']) {
             $loader->load('validator.xml');
         }
+
+        // Update ApiGetConnectedUserListener with config
+        if (isset($config['api_user_connected'])) {
+            $this->updateApiGetConnectedUserListener($config['api_user_connected'], $container);
+        }
+    }
+
+    /**
+     * @param array            $config
+     * @param ContainerBuilder $container
+     */
+    private function updateApiGetConnectedUserListener(array $config, ContainerBuilder $container)
+    {
+        $definition = $container->getDefinition('webhome.listener.api_user_connected');
+        $definition
+            ->addArgument($config['session_key'])
+            ->addArgument($config['access_token_key']['header'])
+            ->addArgument($config['access_token_key']['get'])
+        ;
+
+        foreach($config['required_paths'] as $requiredPath) {
+            $definition->addMethodCall('addRequiredPath', [$requiredPath]);
+        }
+        
+        foreach($config['optional_paths'] as $optionalPath) {
+            $definition->addMethodCall('addOptionalPath', [$optionalPath]);
+        }
     }
 }

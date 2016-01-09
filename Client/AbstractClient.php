@@ -44,14 +44,13 @@ abstract class AbstractClient
     /**
      * Generates the full URL to call.
      *
-     * @param string $prefix
-     * @param string $suffix Endpoint URI.
+     * @param string $endpoint
      *
      * @return string
      */
-    public function generateUrl($prefix, $suffix = '')
+    public function generateUrl($endpoint)
     {
-        return sprintf('%s/v%s/%s/%s', $this->baseUrl, $this->version, $prefix, ltrim($suffix, '/'));
+        return sprintf('%s/v%s/%s', $this->baseUrl, $this->version, ltrim($endpoint, '/'));
     }
 
     /**
